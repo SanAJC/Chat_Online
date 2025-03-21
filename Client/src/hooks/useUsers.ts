@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export type User ={
+export type Users ={
   id: string;
   displayName: string;
   email: string;
@@ -9,7 +9,7 @@ export type User ={
 }
 
 export const useUsers = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<Users[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

@@ -20,13 +20,13 @@ export const getMessagesBetween = async(req : Request , res:Response, next:NextF
     const conversationId = [senderId, receiverId].sort().join('_');
 
     try {
-        const snapshot = await db.collection('messages').where('conversationId', '==', conversationId).orderBy('timestamp', 'desc').get();
+        const snapshot = await db.collection('messages').where('conversationId', '==', conversationId).orderBy('timestamp').get();
 
         const messages: Message[] = [];
         snapshot.forEach(doc => {
             messages.push(doc.data() as Message);
         });
-        res.status(200).json({ messages });
+        res.status(200).json(messages || []); 
     } catch (error) {
         next(error);
     }   

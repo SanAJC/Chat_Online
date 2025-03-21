@@ -1,15 +1,15 @@
 import { useConversations } from "../hooks/useConversations";
-
+import { UserWithLastMessage } from "../hooks/useConversations";
 
 type SelecUserProps ={
-  onSelectUser: (receiverId:string) => void;
+  onSelectUser: (user:UserWithLastMessage) => void;
 }
 
 export const Tag = ({ onSelectUser } : SelecUserProps) => {
   const { users, loading } = useConversations();
 
   return (
-    <div>
+    <div className=" overflow-y-auto  custom-scrollbar">
       {loading ? (
         <p className="text-black font-medium ml-5 mt-5">
           Cargando conversaciones...
@@ -17,7 +17,7 @@ export const Tag = ({ onSelectUser } : SelecUserProps) => {
       ) : (
         <>
           {users.map((convUser) => (  
-              <div key={convUser.localId}  onClick={() => onSelectUser(convUser.localId)} className="flex min-w-[300px] items-center gap-x-4 mt-10 ml-4">
+              <div key={convUser.localId}  onClick={() => onSelectUser(convUser)} className="flex min-w-72  h-[10%] items-center gap-x-4 mt-10 ml-4">
                 <img
                   src={convUser.photoURL || "/avatar_1.png"}
                   className="size-12 shrink-0"
@@ -27,8 +27,8 @@ export const Tag = ({ onSelectUser } : SelecUserProps) => {
                     <span className="text-[15px]">
                       {convUser.displayName || "Usuario"}
                     </span>
-                    <span className="text-[#C4C4C4] text-xs mt-1 ml-30 ">
-                      {convUser.lastMessage?.formattedTime || ""}
+                    <span className="text-[#C4C4C4] text-xs mt-1 ml-40 ">
+                      {convUser.lastMessage?.formattedTime|| ""}
                     </span>
                   </div>
                   <p className="text-gray-500 dark:text-gray-400 text-[13px]">

@@ -63,8 +63,8 @@ export const ChatWindow = ({ receiverId } : ChatWindowProps)  => {
 
   return (
     <div className="flex flex-col h-full">
-      {/* Área de mensajes */}
-      <div className="flex-1 overflow-auto p-4 min-h-[90%]">
+      {loading && <span className="text-amber-100 font-medium">Cargando el chat</span>}
+      <div className="flex-1 overflow-y-auto p-4 m-h-[80%]">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -79,12 +79,11 @@ export const ChatWindow = ({ receiverId } : ChatWindowProps)  => {
           </div>
         ))}
       </div>
-      {/* Barra de escribir y enviar mensajes */}
-      <div className="flex flex-row flex-nowrap items-center justify-between border-t border-gray-700 min-h-[10%] p-2 mt-9.5">
+      <div className="flex flex-row flex-nowrap items-center justify-center border-t border-gray-700 min-h-[10%] p-2 mt-9.5">
         <img src="/src/assets/img.svg" className="w-10 h-10 shrink-0" alt="Adjuntar" />
         <input
           type="text"
-          className="rounded-4xl min-w-xl bg-white p-2 mx-2"
+          className="rounded-4xl min-w-100 bg-white p-2 mx-2"
           placeholder="Escribe un mensaje"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}

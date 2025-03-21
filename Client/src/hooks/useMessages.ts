@@ -1,9 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
+export type Message ={
+  conversationId?: string;
+  senderId:string;
+  receiverId:string;
+  content:string;
+  timestamp:string;
+
+  fileUrl?:string;
+  fileType?: 'image' | 'document' | 'video';
+}
+
 export const useMessages = (receiverId?: string) => {
   const { user } = useAuth();
-  const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,8 +25,8 @@ export const useMessages = (receiverId?: string) => {
         const response = await fetch(
           `http://localhost:4000/api/messages/${user.localId}/${receiverId}`
         );
-        const { messages } = await response.json();
-        setMessages(messages);
+        const data = await response.json();
+        setMessages(data);
       } catch (error) {
         console.error("Error fetching messages:", error);
       } finally {

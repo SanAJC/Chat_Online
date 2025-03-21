@@ -1,15 +1,15 @@
-import { useUsers , User } from '../hooks/useUsers';
+import { useUsers , Users } from '../hooks/useUsers';
 import { useState } from 'react';
 
-type UserModalProps ={
-    onClose: (selectedUser?: User) => void;
+ export type UserModalProps ={
+    onClose: (selectedUser?: Users) => void;
 }
 
 export const UserModal = ({ onClose }:UserModalProps) => {
   const { users, loading, error } = useUsers();
-  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [selectedUser, setSelectedUser] = useState<Users | null>(null);
 
-  const handleUserSelect = (user: User) => {
+  const handleUserSelect = (user: Users) => {
     setSelectedUser(user);
   };
   const handleConfirm = () => {

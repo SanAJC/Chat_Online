@@ -7,7 +7,7 @@ type LastMessage = {
   formattedTime: string; 
 }
 
-type UserWithLastMessage = User & {
+ export type UserWithLastMessage = User & {
   lastMessage?: LastMessage;
 }
 
@@ -15,13 +15,13 @@ export const useConversations = () => {
   const { user } = useAuth();
   const [users, setUsers] = useState<UserWithLastMessage[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const handleLastMessage = async (currentUserId: string, targetUserId: string): Promise<LastMessage | undefined> => {
+ 
+  const handleLastMessage = async (currentUserId: string, targetUserId: string) => {
     try {
       const response = await fetch(
         `http://localhost:4000/api/messages/${currentUserId}/${targetUserId}`
       );
-      const { messages } = await response.json();
+      const messages  = await response.json();
       
       if (messages && messages.length > 0) {
         const lastMsg = messages[messages.length - 1];
@@ -52,7 +52,6 @@ export const useConversations = () => {
       try {
         const response = await fetch(`http://localhost:4000/api/messages/conversations/${user.localId}`);
         const data = await response.json();
-        
         
         const lastMessagePromises = data.users.map(async (conversationUser: User) => {
           const userId = conversationUser.localId;
