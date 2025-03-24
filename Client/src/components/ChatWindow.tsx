@@ -11,7 +11,7 @@ type Message = {
 }
 type ChatWindowProps ={
     receiverId: string;
-  }
+}
 
 export const ChatWindow = ({ receiverId } : ChatWindowProps)  => {
     const { user } = useAuth();

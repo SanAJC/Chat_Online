@@ -15,7 +15,7 @@ export const Login = () => {
   return (
     <>
       <div className="flex justify-between flex-row items-center gap-1 p-10 ">
-        <div className=" bg-[#24252A]  w-1/3  rounded-4xl text-center ml-35 p-15">
+        <div className=" bg-[#24252A]  w-1/3  rounded-4xl text-center ml-35 p-15 drop-shadow-lg">
           <h1 className="text-3xl text-white font-sans mt-1.5">
             Inicio de Session
           </h1>

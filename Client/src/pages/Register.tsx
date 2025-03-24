@@ -29,7 +29,7 @@ export const Register = () => {
   return (
     <>
       <div className="min-h-screen flex items-center justify-center">
-        <div className="w-[500px] bg-[#24252A] rounded-4xl text-center p-15 ">
+        <div className="w-[500px] bg-[#24252A] rounded-4xl text-center p-15 drop-shadow-lg ">
           <h1 className="text-3xl text-white font-sans mt-1.5">Registrate</h1>
           <form onSubmit={handleSubmit}>
             <input
