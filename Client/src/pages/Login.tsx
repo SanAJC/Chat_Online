@@ -59,7 +59,7 @@ export const Login = () => {
         <img
           src="/src/assets/login-me.png"
           alt="imagen-login"
-          className="w-[45%] h-[630px]"
+          className="w-[45%] h-[90%]"
         />
       </div>
     </>

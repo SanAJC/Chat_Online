@@ -10,7 +10,7 @@ export const Aside = () => {
   };
   return (
     <>
-      <div className="bg-[#24252A] w-[80px] h-[99%] ml-3.5 rounded-3xl flex flex-col justify-between mt-1">
+      <div className="bg-[#24252A] w-[80px] h-[99%] ml-3.5 rounded-3xl flex flex-col justify-between mt-1 drop-shadow-lg">
 
         <div className="flex flex-col items-center gap-4 mt-20">
           <Link to={"/chats"}>

@@ -7,7 +7,7 @@ type LastMessage = {
   formattedTime: string; 
 }
 
- export type UserWithLastMessage = User & {
+export type UserWithLastMessage = User & {
   lastMessage?: LastMessage;
 }
 
