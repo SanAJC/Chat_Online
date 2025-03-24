@@ -5,7 +5,6 @@ export const Aside = () => {
 
   const handleClick = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Logout button clicked");
     handleLogout();
   };
   return (
